@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quadcopter">
+
+  <!-- xacro include filename="quad_include.xacro" -->
+
+  <!-- First Link and the only joint -->
+  <link name="map"></link>
+  <joint name="quad_joint" type="fixed">
+    <!-- THe CoG of the quadcopter 7cm below of the quadcopter frame axis -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="map"/>
+    <child link="quad_link"/>
+  </joint>
+
+  <!-- Quadcopter Description -->
+  <link name="quad_link">
+    <visual name="quad_blend">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_sim/desc/meshes/quad.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://quad_sim/desc/meshes/quad.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.4"/>
+      <inertia ixx="0.0038278" ixy="0.0" ixz="0.0" iyy="0.0038278" iyz="0.0" izz="0.0071345"/>
+    </inertial>
+  </link>
+
+  <!-- xacro:include filename="world.xacro" -->
+
+</robot>
