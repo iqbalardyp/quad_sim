@@ -7,7 +7,9 @@
   <link name="map"></link>
   <joint name="quad_joint" type="fixed">
     <!-- THe CoG of the quadcopter 7cm below of the quadcopter frame axis -->
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 -0.07" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit upper="0.0" lower="3.14" effort="2" velocity="2.0"/>
     <parent link="map"/>
     <child link="quad_link"/>
   </joint>
@@ -17,13 +19,13 @@
     <visual name="quad_blend">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_sim/desc/meshes/quad.dae"/>
+	      <mesh filename="package://quad_sim/quadcopter/meshes/quad.obj"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://quad_sim/desc/meshes/quad.stl"/>
+	      <mesh filename="package://quad_sim/quadcopter/meshes/quad.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -32,6 +34,16 @@
       <inertia ixx="0.0038278" ixy="0.0" ixz="0.0" iyy="0.0038278" iyz="0.0" izz="0.0071345"/>
     </inertial>
   </link>
+
+  <transmission name="trans1">
+	  <type>transmission_interface/SimpleTransmission</type>
+	  <joint name="quad_joint">
+		  <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </joint>
+	  <actuator>
+		  <hardwareInterface>EffortJointInterface</hardwareInterface>
+	  </actuator>
+  </transmission>
 
   <!-- xacro:include filename="world.xacro" -->
 

@@ -1,6 +1,6 @@
 <launch>
-  <arg name="model" default="$(find quad_sim)/desc/quad.urdf.xacro"/>
-  <arg name="rvizconfig" default="$(find quad_sim)/desc/quad.rviz"/>
+  <arg name="model" default="$(find quad_sim)/quadcopter/urdf/quad.urdf.xacro"/>
+  <arg name="rvizconfig" default="$(find quad_sim)/spawn.rviz"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
