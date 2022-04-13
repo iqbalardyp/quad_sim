@@ -1,6 +1,5 @@
 <launch>
-  <arg name="model" default="$(find quad_sim)/quadcopter/urdf/quad.urdf.xacro"/>
-  <arg name="rvizconfig" default="$(find quad_sim)/spawn.rviz"/>
+  <arg name="model" default="$(find quad_sim)/quadcopter/urdf/urdf2.xacro"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -20,7 +19,6 @@
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot -param robot_description"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot -param robot_description" required="true"/>
 </launch>
