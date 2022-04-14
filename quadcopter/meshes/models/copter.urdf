@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="quadcopter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <link name="full_model">
+        <visual>
+            <geometry>
+                <mesh filename="package://quad.dae"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material>
+                <mesh filename="package://quad.dae"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <mesh filename="package://quad.stl"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+
+        <inertial>
+            <mass value="0.4"/>
+            <origin xyz="0 0 0" rpy="0 0 0">
+            <inertia ixx="0.0038278" ixy="0.0" ixz="0.0"
+                    iyy="0.0038278" iyz="0.0"
+                    izz="0.0071345"/>
+        </inertial>
+    </link>
+</robot>

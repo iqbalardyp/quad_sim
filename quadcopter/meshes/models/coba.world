@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+
+<!-- Quadcopter Model -->
+    <world name="default">
+        <include>
+            <uri>model://ground_plane</uri>
+        </include>
+        <include>
+            <uri>model://sun</uri>
+        </include>
+
+        <model name="quadcopter">
+            <link name="full_model">
+                <inertial name="full_inertial">
+                    <pose>0 0 0 0 0 0</pose>
+                    <mass>0.4</mass>
+                    <inertia>
+                        <ixx>0.0038278</ixx>
+                        <ixy>0.0</ixy>
+                        <ixz>0.0</ixz>
+                        <iyy>0.0038278</iyy> 
+                        <izz>0.0071345</izz>
+                    </inertia>
+                </inertial>
+
+                <visual name="full_visual">
+                    <pose>0 0 0 1.57079633 0 0</pose>
+                    <geometry>
+                        <mesh>
+				<uri>model://quadcopter/meshes/models/quad.obj</uri>
+                            <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+
+                </visual>
+
+                <collision name="full_collision">
+                    <pose>0 0 0 0 0 0</pose>
+                    <geometry>
+                        <mesh>
+				<uri>model://quadcopter/meshes/models/quad.stl</uri>
+                            <scale>1 1 1</scale>
+                        </mesh>
+                    </geometry>
+                </collision>
+
+            </link>
+        </model>
+    </world>
+</sdf>

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="Inspection Simulation" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find drone_insection_sim)/models/sim_macros.urdf.xacro"/>
+
+    <xacro:light_source/>
+    <xacro:phys/>
+    <xacro:gui_/>
+  </world>
+</sdf>
