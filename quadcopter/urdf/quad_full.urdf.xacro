@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro" name="quadcopter_full">
+  
+  <xacro:property name="robot_name" value="quadcopter"/>
+
+  <!--Include URDF files -->
+
+  <!--Quadcopter Base-->
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/quad_base.urdf.xacro"/>
+   <quad_base_macro/>
+
+  <!--IMU and Ground Truth Sensors-->
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/sensors.xacro"/>
+  <quad_sensors robot_name="${robot_name}"/>
+</robot>
