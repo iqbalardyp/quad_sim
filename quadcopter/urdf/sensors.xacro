@@ -8,7 +8,7 @@
 					<update_rate>100</update_rate>
 					<topicName>${robot_name}/imu</topicName>
 					<bodyName>base_link</bodyName>
-					<frameId>ardrone_base_link</frameId>
+					<frameId>base_link</frameId>
 					<updateRateHZ>10.0</updateRateHZ>
 					<gaussianNoise>0.0</gaussianNoise>
 					<xyzOffset>0 0 0</xyzOffset>

@@ -16,5 +16,5 @@
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model quad -param robot_description"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model quadcopter -param robot_description"/>
 </launch>
