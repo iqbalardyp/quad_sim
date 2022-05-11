@@ -27,5 +27,11 @@
 	      </inertial>
     </link>
 
+    <gazebo>
+      <physics>
+        <gravity xyz="0 0 0"/>
+      </physics>
+    </gazebo>
+
 	</xacro:macro>
 </robot>
