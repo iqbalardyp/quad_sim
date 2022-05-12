@@ -10,6 +10,10 @@
    <quad_base_macro/>
 
   <!--IMU and Ground Truth Sensors-->
-  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/sensors.xacro"/>
-  <quad_sensors robot_name="${robot_name}"/>
+  <!--xacro:include filename="$(find quad_sim)/quadcopter/urdf/sensors.xacro"/>
+  <quad_sensors robot_name="${robot_name}"/-->
+
+  <!--IMU from libgazebo_ros_imu_sensor-->
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/imu1.xacro"/>
+  
 </robot>
