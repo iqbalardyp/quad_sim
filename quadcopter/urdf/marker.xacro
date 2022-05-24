@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="marker">
+  <xacro:macro name="marker" params="id color">
+    <link name="marker${id}_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1e-03"/>
+        <inertia ixx="1e-06" ixy="0.0" ixz="0.0" iyy="1e-06" iyz="0.0" izz="1e-06"/>
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://quad_sim/quadcopter/meshes/marker_raw.dae"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 9" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://quad_sim/quadcopter/meshes/marker_raw.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+  <gazebo reference="marker${id}_link">
+    <material>Gazebo/${color}</material>
+  </gazebo>
+  </xacro:macro>
+</robot>

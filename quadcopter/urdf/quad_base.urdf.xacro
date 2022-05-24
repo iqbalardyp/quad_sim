@@ -1,37 +1,90 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="quadcopter">
+  <!--Include Frame, Rotor, and Marker model -->
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/frame.xacro"/>
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/rotor.xacro"/>
+  <xacro:include filename="$(find quad_sim)/quadcopter/urdf/marker.xacro"/>
 
 	<!-- Quadcopter Description -->
 	<xacro:macro name="quad_base_macro">
+  <xacro:frame/>
+  
 
-	  <link name="base_link">
-    		<visual name="quad_visual">
-    		  <origin xyz="0 0 0" rpy="0 0 0"/>
-    		  <geometry>
-		    	  <mesh filename="package://quad_sim/quadcopter/meshes/quad.dae"/>
-		      </geometry>
-		    </visual>
+  <!--Rotors-->
+  <xacro:rotor id="1">
+  </xacro:rotor>
 
-	    	<collision>
-	    	  <origin xyz="0 0 0" rpy="0 0 0"/>
-		      <geometry>
-			      <mesh filename="package://quad_sim/quadcopter/meshes/quad.stl"/>
-		      </geometry>
-		    </collision>
+  <xacro:rotor id="2">
+  </xacro:rotor>
 
-	    	<inertial>
-        <!--The CoG of the quadcopter slightly below the quadcopter's center of frames -->
-		      <origin xyz="0 0 -0.07" rpy="0 0 0"/>
-    		  <mass value="0.4"/>
-		      <inertia ixx="0.0038278" ixy="0.0" ixz="0.0" iyy="0.0038278" iyz="0.0" izz="0.0071345"/>
-	      </inertial>
-    </link>
+  <xacro:rotor id="3">
+  </xacro:rotor>
 
-    <gazebo>
-      <physics>
-        <gravity xyz="0 0 0"/>
-      </physics>
-    </gazebo>
+  <xacro:rotor id="4">
+  </xacro:rotor>
+  
+  <!--Markers-->
+  <xacro:marker id="1" color="Red">
+  </xacro:marker>
 
-	</xacro:macro>
+  <xacro:marker id="2" color="Green">
+  </xacro:marker>
+
+  <xacro:marker id="3" color="Blue">
+  </xacro:marker>
+
+  <xacro:marker id="4" color="Yellow">
+  </xacro:marker>
+
+ <!--Rotor's Joints-->
+ <joint name="rotor1_joint" type="fixed">
+    <origin xyz="0.205 0.205 0.03" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="rotor1_link"/>
+  </joint>
+
+  <joint name="rotor2_joint" type="fixed">
+    <origin xyz="-0.205 0.205 0.03" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="rotor2_link"/>
+  </joint>
+
+  <joint name="rotor3_joint" type="fixed">
+    <origin xyz="-0.205 -0.205 0.03" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="rotor3_link"/>
+  </joint>
+
+  <joint name="rotor4_joint" type="fixed">
+    <origin xyz="0.205 -0.205 0.03" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="rotor4_link"/>
+  </joint>
+
+  <!--Marker's Joints-->
+  <joint name="marker1_joint" type="fixed">
+    <origin xyz="0.205 0.205 0.05" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="marker1_link"/>
+  </joint>
+
+  <joint name="marker2_joint" type="fixed">
+    <origin xyz="-0.205 0.205 0.05" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="marker2_link"/>
+  </joint>
+
+  <joint name="marker3_joint" type="fixed">
+    <origin xyz="-0.205 -0.205 0.05" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="marker3_link"/>
+  </joint>
+
+  <joint name="marker4_joint" type="fixed">
+    <origin xyz="0.205 -0.205 0.05" rpy="0 0 0"/>
+    <parent link="frame_link"/>
+    <child link="marker4_link"/>
+  </joint>
+
+  </xacro:macro>
 </robot>
