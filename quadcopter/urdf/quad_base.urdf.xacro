@@ -63,25 +63,25 @@
 
   <!--Marker's Joints-->
   <joint name="marker1_joint" type="fixed">
-    <origin xyz="0.205 0.205 0.05" rpy="0 0 0"/>
+    <origin xyz="0.205 0.205 0.06" rpy="0 0 0"/>
     <parent link="frame_link"/>
     <child link="marker1_link"/>
   </joint>
 
   <joint name="marker2_joint" type="fixed">
-    <origin xyz="-0.205 0.205 0.05" rpy="0 0 0"/>
+    <origin xyz="-0.205 0.205 0.06" rpy="0 0 0"/>
     <parent link="frame_link"/>
     <child link="marker2_link"/>
   </joint>
 
   <joint name="marker3_joint" type="fixed">
-    <origin xyz="-0.205 -0.205 0.05" rpy="0 0 0"/>
+    <origin xyz="-0.205 -0.205 0.06" rpy="0 0 0"/>
     <parent link="frame_link"/>
     <child link="marker3_link"/>
   </joint>
 
   <joint name="marker4_joint" type="fixed">
-    <origin xyz="0.205 -0.205 0.05" rpy="0 0 0"/>
+    <origin xyz="0.205 -0.205 0.06" rpy="0 0 0"/>
     <parent link="frame_link"/>
     <child link="marker4_link"/>
   </joint>

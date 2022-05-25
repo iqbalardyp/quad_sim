@@ -11,14 +11,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://quad_sim/quadcopter/meshes/quad_frame.dae"/>
+          <mesh filename="package://quad_sim/quadcopter/meshes/quad_frame2.dae"/>
         </geometry>
       </visual>
 
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://quad_sim/quadcopter/meshes/quad_frame.stl"/>
+          <mesh filename="package://quad_sim/quadcopter/meshes/quad_frame2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>

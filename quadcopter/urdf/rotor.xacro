@@ -11,19 +11,19 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://quad_sim/quadcopter/meshes/quad_rotor.dae"/>
+          <mesh filename="package://quad_sim/quadcopter/meshes/quad_rotor.dae" scale="0.74359 0.74359 0"/>
         </geometry>
       </visual>
 
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://quad_sim/quadcopter/meshes/quad_rotor.stl"/>
+          <mesh filename="package://quad_sim/quadcopter/meshes/quad_rotor.stl" scale="0.00074359 0.00074359 0.001"/>
         </geometry>
       </collision>
     </link>
   <gazebo reference="rotor_link">
-    <material>Gazebo/Gray</material>
+    <material>Gazebo/Grey</material>
   </gazebo>
   </xacro:macro>
 </robot>
