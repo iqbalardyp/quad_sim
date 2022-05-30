@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera1">
-	<link name="cam">
+
+  <link name="cam">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
@@ -19,13 +20,12 @@
 			</geometry>
 		</collision>
 	</link>
-    <!-- camera -->
 
   <gazebo>
     <static>true</static>
   </gazebo>
+
   <gazebo reference="cam">
-    <static>true</static>
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="nom">
@@ -41,9 +41,9 @@
         </clip>
         <noise>
           <type>gaussian</type>
-          <!-- Noise is sampled independently per pixel on each frame.
+          <!--Noise is sampled independently per pixel on each frame.
                That pixel's noise value is added to each of its color
-               channels, which at that point lie in the range [0,1]. -->
+               channels, which at that point lie in the range [0,1].-->
           <mean>0.0</mean>
           <stddev>0.007</stddev>
         </noise>

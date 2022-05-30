@@ -1,10 +1,11 @@
 <launch>
-  <arg name="model" default="$(find quad_sim)/camera_sensor/tutorial/camera1.xacro"/>
+  <arg name="model" default="$(find quad_sim)/quadcopter/urdf/quad_full.urdf.xacro"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="recording" default="false"/>
   <arg name="debug" default="false"/>
+  <arg name="world_name" default="$(find quad_sim)/worlds/sim.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="debug" value="$(arg debug)"/>
@@ -12,9 +13,10 @@
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
   </include>
 
-  <param name="robot_desciption" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
 
-  <node name="camera_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model camera1 -param robot_description" required="true"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model quadcopter -param robot_description -z 5"/>
 </launch>

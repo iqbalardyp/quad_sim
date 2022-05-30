@@ -1,0 +1,27 @@
+<launch>
+  <arg name="quadcopter" default="$(find quad_sim)/quadcopter/urdf/quad_full.urdf.xacro"/>
+  <arg name="camera1" default="$(find quad_sim)/camera_sensor/tutorial/camera1.xacro"/>
+  <arg name="cam1_z" default="2.0"/>
+  <arg name="cam1_pitch" default="1.5707"/>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="recording" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="world_name" default="$(find quad_sim)/worlds/sim.world"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="recording" value="$(arg recording)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <param name="quad_desc" command="$(find xacro)/xacro --inorder $(arg quadcopter)"/>
+  <param name="cam1_desc" command="$(find xacro)/xacro --inorder $(arg camera1)"/>
+
+  <node name="quadcopter_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model quadcopter -param quad_desc"/>
+  <node name="camera1_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model camera1 -param cam1_desc -z $(arg cam1_z) -P $(arg cam1_pitch)"/>
+</launch>

@@ -1,5 +1,5 @@
 <launch>
-	<arg name="model" default="$(find quad_sim)/camera_sensor/tutorial/camera1.xacro"/>
+	<arg name="model" default="$(find quad_sim)/camera_sensor/one_camera/camera1.xacro"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
@@ -9,7 +9,7 @@
   <arg name="y" default="0.0"/>
   <arg name="z" default="2.0"/>
   <arg name="roll" default="0.0"/>
-  <arg name="pitch" default="1.5708"/>
+  <arg name="pitch" default="1.5707"/>
   <arg name="yaw" default="0.0"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
