@@ -1,6 +1,6 @@
 <launch>
   <arg name="quadcopter" default="$(find quad_sim)/quadcopter/urdf/quad_full.urdf.xacro"/>
-  <arg name="camera1" default="$(find quad_sim)/camera_sensor/tutorial/camera1.xacro"/>
+  <arg name="camera1" default="$(find quad_sim)/camera_sensor/one_camera/camera1.xacro"/>
   <arg name="cam1_z" default="2.0"/>
   <arg name="cam1_pitch" default="1.5707"/>
   <arg name="gui" default="true"/>
