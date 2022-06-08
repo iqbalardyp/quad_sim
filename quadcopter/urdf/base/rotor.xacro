@@ -22,7 +22,7 @@
         </geometry>
       </collision>
     </link>
-  <gazebo reference="rotor_link">
+    <gazebo reference="rotor${id}_link">
     <material>Gazebo/Grey</material>
   </gazebo>
   </xacro:macro>
