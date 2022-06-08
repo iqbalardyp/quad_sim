@@ -1,4 +1,5 @@
 <launch>
+	<arg name="quadcopter" default="$(find quad_sim)/quadcopter/urdf/quad_full.urdf.xacro"/>
 	<arg name="dual_cam" default="$(find quad_sim)/camera_sensor/dual_camera/dual_cam.urdf.xacro"/>
 	<arg name="single_cam" default="$(find quad_sim)/camera_sensor/one_camera/single_cam.xacro"/>
   <arg name="gui" default="true"/>
@@ -16,12 +17,14 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
   </include>
-
-  <param name="single_cam_desc" command="$(find xacro)/xacro --inorder $(arg single_cam)"/>
+	
+	<param name="quad_desc" command="$(find xacro)/xacro --inorder $(arg quadcopter)"/>
+	<param name="single_cam_desc" command="$(find xacro)/xacro --inorder $(arg single_cam)"/>
 	<param name="dual_cam_desc" command="$(find xacro)/xacro --inorder $(arg dual_cam)"/>
 
+  <node name="quadcopter_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model quadcopter -param quad_desc"/>
   <node name="single_cam_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model single_camera -param single_cam_desc -x 0 -y $(arg offset) -z 2 -P $(arg pitch)"/>
-  <node name="dual_cam_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model dual_camera -param dual_cam_desc -x 0 -y -$(arg offset) -z 2 -P $(arg pitch)"/>
+	<node name="dual_cam_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model dual_camera -param dual_cam_desc -x 0 -y -$(arg offset) -z 2 -P $(arg pitch)"/>
 
 
 </launch>

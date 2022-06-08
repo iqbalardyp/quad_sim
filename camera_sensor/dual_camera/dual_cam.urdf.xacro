@@ -3,10 +3,8 @@
   <!-- include single_camera model -->
   <xacro:include filename="$(find quad_sim)/camera_sensor/dual_camera/single_cam.xacro"/>
 
-  <!--xacro:dual_cam id="1">
-  </xacro:dual_cam-->
-	<xacro:cam id="1">
-	</xacro:cam>
+	<!--xacro:cam id="1">
+	</xacro:cam-->
 	<xacro:cam id="2">
 	</xacro:cam>
 </robot>
