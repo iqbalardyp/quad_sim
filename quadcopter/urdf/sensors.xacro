@@ -3,7 +3,7 @@
 	<xacro:macro name="quad_sensors" params="robot_name">
 		<gazebo reference="frame_link">
 			<!--IMU Sensor -->
-			<gravity>false</gravity>
+			<gravity>true</gravity>
 			<sensor name="imu_sensor" type="imu">
 				<always_on>true</always_on>
 				<update_rate>100</update_rate>
@@ -12,7 +12,7 @@
 				<plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
 					<topicName>quadcopter/imu</topicName>
 					<bodyName>imu_link</bodyName>
-					<updateRateHZ>10.0</updateRateHZ>
+					<updateRateHZ>100.0</updateRateHZ>
 					<gaussianNoise>0.0</gaussianNoise>
 					<xyzOffset>0 0 0</xyzOffset>
 					<rpyOffset>0 0 0</rpyOffset>
@@ -28,7 +28,7 @@
 				<alwaysOn>true</alwaysOn>
 				<updateRate>100</updateRate>
 				<bodyName>frame_link</bodyName>
-				<topicName>${robot_name}/ground_truth/state</topicName>
+				<topicName>${robot_name}/ground_truth</topicName>
 				<gaussianNoise>0.0</gaussianNoise>
 				<frameName>world</frameName>
 			</plugin>
