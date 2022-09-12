@@ -13,7 +13,7 @@
   <xacro:include filename="$(find quad_sim)/quadcopter/urdf/sensors.xacro"/>
   <quad_sensors robot_name="${robot_name}"/>
 
-  <!--IMU from libgazebo_ros_imu_sensor-->
-  <!--xacro:include filename="$(find quad_sim)/quadcopter/urdf/imu1.xacro"/-->
-  
+  <!-- MATLAB/Simulink-Gazebo Plugin -->
+	<!--xacro:include filename="$(find quad_sim)/quadcopter/urdf/gazebo_plugin.gazebo.xacro"/>
+  <GazeboPlugin/-->
 </robot>

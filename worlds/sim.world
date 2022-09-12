@@ -10,9 +10,11 @@
       <uri>model://ground_plane</uri>
     </include>
 
-    <!--physics type="ode">
-      <gravity>0 0 -9.81</gravity>
-    </physics-->
+    <physics type="ode">
+      <gravity>0 0 0</gravity>
+    </physics>
+    
+    <!-- Simulink Gazebo Plugin-->
+    <plugin name="GazeboPlugin" filename="lib/libGazeboCoSimPlugin.so"><portNumber>14581</portNumber></plugin>
   </world>
-
 </sdf>   

@@ -2,6 +2,7 @@
 	<arg name="quadcopter" default="$(find quad_sim)/quadcopter/urdf/quad_full.urdf.xacro"/>
 	<arg name="dual_cam" default="$(find quad_sim)/camera_sensor/dual_camera/dual_cam.urdf.xacro"/>
 	<arg name="single_cam" default="$(find quad_sim)/camera_sensor/one_camera/single_cam.xacro"/>
+  <arg name="world_name" default="$(find quad_sim)/worlds/sim.world"/>
   <arg name="gui" default="true"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
@@ -16,6 +17,7 @@
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="recording" value="$(arg recording)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
   </include>
 	
 	<param name="quad_desc" command="$(find xacro)/xacro --inorder $(arg quadcopter)"/>
